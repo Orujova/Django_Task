@@ -1,0 +1,36 @@
+{% load numberformat %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Product List</h1>
+<ul>
+    {% for product in products %}
+        <li>
+            {{product.name|slash}}
+           <br>
+           <p> Total price: {{ product.total_price|add:10|floatformat:"2" }}</p>
+            <br>
+            
+            {{ product.description|get_description_length }}
+          
+
+        
+        <p>{{ product.created_at|timesince }}</p>
+            
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+
+<br>
+
+
+    
+</body>
+</html>
